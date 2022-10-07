@@ -1,0 +1,135 @@
+name: 🐛 Signaler un bug
+description: Signaler un bug bloquant ou non-bloquant
+title: "[BUG] 🐛 "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        _Example de titre : `[BUG] 🐛 Aucun résultat sur la page "Leads Famille" du back-office`_
+
+  - type: checkboxes
+    id: duplicates
+    attributes:
+      label: Doublon ?
+      options:
+        - label: J'ai vérifié que ce bug n'a pas été signalé via une autre issue
+
+  - type: dropdown
+    id: applications
+    attributes:
+      label: Application(s) <label>
+      multiple: true
+      options:
+        - Mobile iOS
+        - Mobile Android
+        - Back-office (Forest Admin)
+        - Site Web public (Webflow)
+    validations:
+      required: true
+
+  - type: dropdown
+    id: personae
+    attributes:
+      label: Personae <label>
+      description: Qui remonte le bug ?
+      options:
+        - Interne - Admin
+        - Interne - Développeur
+        - Interne - CSM
+        - Interne - Sales
+        - Interne - Staffeur
+        - Externe - Assisteur
+        - Externe - Etablissement
+        - Externe - Famille
+        - Externe - Intervenant
+    validations:
+      required: true
+
+  - type: dropdown
+    id: criticity
+    attributes:
+      label: Criticité <label>
+      description: |
+        - _**Non bloquant** : Possible de faire l'action mais via contournement_
+        - _**Bloquant** : Impossible de faire l'action et aucun contournement possible_
+      options:
+        - Non bloquant
+        - Bloquant
+    validations:
+      required: true
+
+  - type: dropdown
+    id: frequency
+    attributes:
+      label: Fréquence <label>
+      options:
+        - Systématique (Facilement reproductible)
+        - Aléatoire (Difficilement reproductible)
+    validations:
+      required: true
+
+  - type: textarea
+    id: situation
+    attributes:
+      label: Situation rencontrée
+      description: |
+        Que se passe-t-il actuellement ?
+        Lister chaque étape jusqu'à l'obtention du bug
+        _Pensez à :_
+        - _préciser le(s) lien(s) ou identifiant(s) dans le cas du `back-office`_
+        - _utiliser des n° pour chaque étape_
+        - _mettre un emoji ❌ au niveau de(s) étape(s) qui pose(nt) problème_
+      placeholder: |
+        1. En tant que CSM
+        2. Aller dans la collection "Leads Famille"
+        3. ❌ Il y a aucun résultat
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Situation attendue
+      description: |
+        Qu'est-on supposé avoir ?
+        _Pensez à reprendre le n° de(s) étape(s) qui pose(nt) problème_
+      placeholder: |
+        3. Il doit y avoir plusieurs résultats
+    validations:
+      required: true
+
+  - type: textarea
+    id: sceenshots
+    attributes:
+      label: Capture(s) d'écran / vidéo / log / lien(s)
+      description: Déplacer le(s) fichier(s) dans la zone de texte et visualisez via l'onglet `Preview`
+      placeholder: Cliquez avant de déplacer le(s) fichier(s)
+
+  - type: dropdown
+    id: browser
+    attributes:
+      label: Type de navigateur
+      description: Seul le site Web public (Webflow) est concerné
+      multiple: true
+      options:
+        - Google Chrome
+        - Mozilla Firefox
+        - Safari
+        - Microsoft Edge
+        - Internet Explorer
+        - Autre
+
+  - type: textarea
+    id: tickets
+    attributes:
+      label: Ticket(s) lié(s)
+      description: A remplir si le bug est lié à d'autre(s) issue(s)
+      placeholder: Mettre le(s) lien(s)
+
+  - type: input
+    id: version
+    attributes:
+      label: Version de l'application
+      description: N° lié à la version où le bug a été observé ou idéalement à la version qui introduit le bug
+      placeholder: Saisir le n° de version s'il est connu

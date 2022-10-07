@@ -1,0 +1,119 @@
+name: ✨ Demander une fonctionnalité
+description: Demander une fonctionnalité inexistante ou l'amélioration d'une fonctionnalité existante
+title: "[FEATURE] ✨ "
+labels: ["feature"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Example de titre: `[FEATURE] ✨ Permettre le filtrage des intervenants par niveau dans le back-office`
+
+  - type: checkboxes
+    id: duplicates
+    attributes:
+      label: Doublon ?
+      options:
+        - label: J'ai vérifié que cette demande n'a pas été faite via une autre issue
+
+  - type: dropdown
+    id: applications
+    attributes:
+      label: Application(s) <label>
+      multiple: true
+      options:
+        - Mobile iOS
+        - Mobile Android
+        - Back-office (Forest Admin)
+        - Site Web public (Webflow)
+    validations:
+      required: true
+
+  - type: dropdown
+    id: personae
+    attributes:
+      label: Personae <label>
+      description: Qui fait la demande ?
+      options:
+        - Interne - Admin
+        - Interne - Développeur
+        - Interne - CSM
+        - Interne - Sales
+        - Interne - Staffeur
+        - Externe - Assisteur
+        - Externe - Etablissement
+        - Externe - Famille
+        - Externe - Intervenant
+    validations:
+      required: true
+
+  - type: dropdown
+    id: importance
+    attributes:
+      label: Importance <label>
+      description: |
+        - _**Nice to have** : Possible de faire l'action mais pas optimal_
+        - _**Moyenne** : Nouvelle fonctionnalité qui sera peu/moyennement utilisée_
+        - _**Haute** : Nouvelle fonctionnalité qui sera souvent utilisée_
+      options:
+        - Nice to have
+        - Moyenne
+        - Haute
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Contexte
+      description: |
+        Qu'a-t-on actuellement ?
+        _(dans le cas du back-office, pensez à préciser le/les liens ou identifiants)_
+      placeholder: Décrivez rapidement ce qu'on a
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Fonctionnement attendue
+      description: |
+        Qu'est-on supposé avoir ?
+        _(n'hésitez pas à préciser plusieurs scénarios possibles)_
+      placeholder: Décrivez en détail ce que vous souhaitez
+    validations:
+      required: true
+
+  - type: textarea
+    id: sceenshots
+    attributes:
+      label: Capture(s) d'écran / vidéo / lien(s)
+      description: Déplacer le(s) fichier(s) dans la zone de texte et visualisez via l'onglet `Preview`
+      placeholder: Cliquez avant de déplacer le(s) fichier(s)
+
+  - type: dropdown
+    id: browser
+    attributes:
+      label: Type de navigateur
+      description: Seul le site Web public (Webflow) est concerné
+      multiple: true
+      options:
+        - Google Chrome
+        - Mozilla Firefox
+        - Safari
+        - Microsoft Edge
+        - Internet Explorer
+        - Autre
+
+  - type: textarea
+    id: tickets
+    attributes:
+      label: Ticket(s) lié(s)
+      description: A remplir si cette fonctionnalité est lié à d'autre(s) issue(s)
+      placeholder: Mettre le(s) lien(s)
+
+  - type: input
+    id: version
+    attributes:
+      label: Version de l'application
+      description: N° lié à la livraison de la fonctionnalité
+      placeholder: Saisir le n° de version s'il est connu
